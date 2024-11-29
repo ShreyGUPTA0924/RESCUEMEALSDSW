@@ -1,0 +1,137 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .donation-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #06C167;
+  }
+  
+  h1 .highlight {
+    color: #333;
+  }
+  
+  /* Form Styling */
+  form {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  button.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #06C167;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.submit-button:hover {
+    background-color: #04a14f;
+  }
+  
+  /* Payment Options */
+  .payment-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .payment-options input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .payment-options label {
+    margin-right: 20px;
+    font-weight: normal;
+    color: #333;
+  }
+  
+  /* QR Code Section */
+  .qr-code {
+    border: 1px solid #06C167;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f0f9f4;
+  }
+  
+  .qr-code p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .qr-code img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .donation-form-container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    button.submit-button {
+      font-size: 0.9rem;
+    }
+  
+    .payment-options {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .payment-options label {
+      margin-bottom: 10px;
+    }
+  }
+  

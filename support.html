@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetary Donation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .qr-code {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-code img {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="donation-form-container">
+    <h1>Monetary <span class="highlight">Donations</span></h1>
+    <form id="donationForm" class="donation-form">
+      
+      <label for="amount">Donation Amount (in USD):</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter amount" required><br><br>
+      
+     
+      <label>Payment Method:</label>
+      <div class="payment-options">
+        <input type="radio" id="credit-card" name="payment_method" value="Credit Card" required>
+        <label for="credit-card">Credit Card</label>
+
+        <input type="radio" id="paypal" name="payment_method" value="PayPal" required>
+        <label for="paypal">PayPal</label>
+
+        <input type="radio" id="upi" name="payment_method" value="UPI" required>
+        <label for="upi">UPI</label>
+
+        <input type="radio" id="bank-transfer" name="payment_method" value="Bank Transfer" required>
+        <label for="bank-transfer">Bank Transfer</label>
+      </div>
+      
+    
+      <h3>Contact Details</h3>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <label for="phone">Phone No:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" placeholder="Enter your address" rows="3"></textarea>
+      
+      
+      <button type="submit" class="submit-button">Donate Now</button>
+    </form>
+
+   
+    <div class="qr-code" id="qrCode">
+      <p>Scan this QR code to complete your UPI payment:</p>
+      <img src="img/qrcode.png" alt="UPI QR Code">
+    </div>
+  </div>
+
+  <script>
+    
+    document.getElementById('donationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      const amount = document.getElementById('amount').value;
+      if (amount) {
+        alert(`Thank you! You have successfully donated $${amount}.`);
+      } else {
+        alert('Please enter a valid donation amount.');
+      }
+    });
+
+    
+    const paymentOptions = document.querySelectorAll('input[name="payment_method"]');
+    const qrCodeDiv = document.getElementById('qrCode');
+
+    paymentOptions.forEach(option => {
+      option.addEventListener('change', () => {
+        if (option.id === 'upi' && option.checked) {
+          qrCodeDiv.style.display = 'block'; 
+        } else {
+          qrCodeDiv.style.display = 'none'; 
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Rescue <b style="color: #06C167;">Meals</b></div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="home.html" >Home</a></li>
+                <li><a href="#about" class="active" >About</a></li>
+                <li><a href="contact.html" >Contact</a></li>
+                <li><a href="profile.php" >Profile</a></li>
+                <li> <a href="support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        hamburger=document.querySelector(".hamburger");
+        hamburger.onclick =function(){
+            navBar=document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
+    <style>
+       
+        
+        .coverc{
+          width: 100%;
+          height: 400px;
+          background:url('img/about3.jpg')no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items:center;
+    padding-top: 8rem;
+ 
+        } 
+        .title{
+          font-size: 38px;
+          text-align: center;
+          align-items: center; 
+        }
+       
+        .para p{
+            font-size: 23px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+          @media (max-width: 767px) {
+            .para p{
+               font-size: 16px;
+               /* margin-left: 10px; */
+              }
+            #pptslide{
+                height: 200px;
+                width: 300px;
+
+            }
+            #map{
+              height: 200px;
+                width: 300px;
+                font-size: xxx-large;
+
+            }
+            #overview{
+              height: 200px;
+                width: 300px;
+            }
+            
+        .title{
+          font-size: 28px;
+          margin: 10px;
+          text-align: center;
+          align-items: center; 
+        }
+       
+
+          }
+     
+    </style>
+    <br>
+    <br>
+   
+    <p class="title">"Welcome to <u> Rescue Meals</u> "</p>
+    <br>
+    <br>
+    <br>
+        <p class="heading">About us</p>
+      <div class="para">
+        <p>At "Rescue Meals", our mission is to combat hunger and reduce food waste by connecting surplus food to those in need. We envision a world where no food goes to waste, and every meal serves a purpose. By bridging donors with shelters, orphanages, and the underprivileged, we ensure that excess food from events, restaurants, and households reaches those who need it most. Through collaborative efforts and your support, we aim to create a sustainable, hunger-free future, where generosity fuels change, and every plate makes a difference. Together, let’s serve humanity, one meal at a time.</p>
+      </div>
+      <br>
+      <br>
+<div class="map"  style="  text-align: center; padding-bottom: 50px;" >
+<p  style=" font-size:30px ;" > Location  </p>
+<a href="openmap.html" id="map" style="font-size: xx-large; color:#06C167;">!!! Click to see LOCATION !!!</a>
+     </div>
+</body>
+</html>

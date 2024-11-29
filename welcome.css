@@ -1,0 +1,99 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+}
+
+h1, p {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #06C167; /* Vibrant Green */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005a2d; 
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #06C167;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    background-color: #06C167;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #005a2d;
+}
+
+/* Layout Styles */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

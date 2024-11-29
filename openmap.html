@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Current Location on Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #06C167;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #map-container {
+            display: none;
+            width: 90%;
+            height: 400px;
+            margin: 20px auto;
+            border: 2px solid #06C167;
+            border-radius: 10px;
+        }
+
+        #location-button {
+            background-color: #06C167;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #location-button:hover {
+            background-color: #04A655;
+        }
+
+        @media screen and (max-width: 600px) {
+            #map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Rescue Meals
+    </header>
+
+    <h3>Click below to see your current location</h3>
+    <button id="location-button">Click to See Location</button>
+
+    <div id="map-container"></div>
+    <div id="city-name"></div>
+    <div id="address"></div>
+
+    <script>
+        // Initialize the map and set up the event listener
+        document.getElementById('location-button').addEventListener('click', function () {
+          
+            document.getElementById('map-container').style.display = 'block';
+
+          
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+             
+                const map = L.map('map-container').setView(userLocation, 15);
+
+               
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+                    maxZoom: 18
+                }).addTo(map);
+
+                const marker = L.marker(userLocation).addTo(map);
+                marker.bindPopup('<b>You are here!</b>').openPopup();
+
+                // Reverse geocode to fetch city and address details
+                const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${userLocation.lat}&lon=${userLocation.lng}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        const cityName = data.address.city || data.address.town || 'Unknown city';
+                        const address = data.display_name;
+
+                        document.getElementById('city-name').innerHTML = `City: ${cityName}`;
+                        document.getElementById('address').innerHTML = `Address: ${address}`;
+                    })
+                    .catch(error => console.error('Error fetching location details:', error));
+            }, function (error) {
+                alert('Unable to fetch your location. Please ensure location services are enabled.');
+            });
+        });
+    </script>
+</body>
+</html>

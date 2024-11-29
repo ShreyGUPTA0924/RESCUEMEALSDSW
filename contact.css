@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;0,700;0,800;1,400;1,600&display=swap');
+:root{
+  --navcolor:white;
+  --navfont:black;
+  --green:#06C167;
+  --box-shadow:0 .5rem 1rem rgba(0,0,0.1)
+}
+*{
+  
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  /* font-family:sans-serif; */
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+body{
+  background-color: #fefefe;
+    /* margin: 0; */
+  /* padding: 0; */
+
+}
+/* navigation bar  */
+header{
+  width: 100%;
+  height: 80px;
+  background-color: var(--navcolor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+}
+.logo{
+  font-size: 28px;
+  color:var(--navfont);
+}
+.hamburger{
+  display:none;
+}
+.nav-bar ul{
+  display: flex;
+}
+.nav-bar ul li a{
+   display: block;
+   color: var(--navfont);
+   font-size: 20px ;
+   padding:10px 25px;
+   border-radius: 50px;
+   transition: 0.2s;
+   margin: 0 5px;
+
+}
+.nav-bar ul li a:hover{
+  color: var(--navcolor);
+  background-color: var(--navfont);
+  border-radius: 50px;
+}
+.nav-bar ul li a.active{
+  color:var(--navcolor);
+  background-color: var(--navfont);
+  /* border-bottom: 8px solid #06C167; */
+ 
+
+}
+@media only screen and (max-width:1320px){
+  header{
+    padding:0 50px;
+  }
+  .banner{
+    width: 100%;
+    height: 1900vh;
+    background:url('cover.jpeg')no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items:center;
+  padding-top: 8rem;
+  }
+}
+@media only screen and (max-width:1100px){
+  header{
+    padding:0 30px;
+  }
+}
+@media only screen and (max-width:900px){
+  
+  .hamburger{
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger .line{
+    width:30px;
+    height: 3px;
+    background-color:var(--navfont);
+    margin: 6px 0;
+  }
+  .nav-bar{
+    height: 0;
+    position: absolute;
+    top:80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: #06C167;
+    transition: 0.2s;
+    overflow: hidden;
+
+  }
+  .nav-bar.active {
+    height: 450px;
+    z-index: 10;
+  }
+ 
+  .nav-bar ul{
+    display: block;
+    width:fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+
+  }
+  .nav-bar.active ul {
+    opacity: 1;
+
+  }
+  .nav-bar ul li a{
+    margin-bottom: 12px;
+
+  }
+  .banner{
+    background-image: none;
+  }
+}
+/* Cover section */
+.cover {
+    height: 200px;
+    background-color: #06C167;
+}
+
+/* Contact form styles */
+.contact-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #06C167;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #06C167;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+.contact-form input[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+/* Contact info styles */
+.contact-info {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #06C167;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    .nav-bar {
+        display: none; /* Hide nav bar by default on smaller screens */
+    }
+
+    .nav-bar.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        border: 1px solid #06C167;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-bar a {
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+}
